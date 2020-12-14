@@ -32,7 +32,7 @@ npm run build
 ```
 
 
-# IoT Engineering
+# IoT Engineering Example Project
 
 ## Project Example
 
