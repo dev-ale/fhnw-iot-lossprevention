@@ -30,3 +30,75 @@ yarn serve
 ```
 npm run build
 ```
+
+
+# IoT Engineering
+
+## Project Example
+
+## Introduction
+
+### Team members
+
+## Deliverables
+
+### Source code
+
+#### Sensor device
+
+##### Source code
+
+##### Setup software
+
+##### Setup hardware
+
+##### Build an enclosure
+
+
+#### Actuator device
+
+
+##### Source code
+
+
+##### Setup software
+
+
+##### Setup hardware
+
+
+#### Build an enclosure
+
+
+#### TTN backend
+
+
+#### ThingSpeak dashboard
+
+
+#### TTN to ThingSpeak adapter
+
+
+##### Source code
+
+
+##### Setup
+
+
+### Presentation
+
+
+#### Use cases
+
+
+#### Reference model
+
+
+#### Interface documentation
+
+
+#### Issues
+
+
+### Live demo
+
