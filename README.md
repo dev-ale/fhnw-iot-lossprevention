@@ -56,7 +56,7 @@ A bicycle alarm system and tracker utilizing The Things Network's LoRaWAN infras
 
 * [Feather nRF52840 Express Source Code](https://github.com/dev-ale/fhnw-iot-lossprevention/tree/master/arduino-code)
 
-Credits: The source code is based on the following source code
+Credits: Code from the following sources has been used:
 
 *  https://learn.sparkfun.com/tutorials/gps-logger-shield-hookup-guide/example-sketch-tinygps-serial-streaming
 
@@ -171,8 +171,11 @@ This is a proof of concept and does not come with an enclosure. Depending on the
 
 ### Presentation
 
-
 #### Use cases
+
+The tracker does not acquire location data via GPS or transmit data via LoRaWAN until the vibration sensor registers movement.  This allows for very little power consumption during standby and only transmitting location updates when necessary. The alarm can be enabled using the web application, which triggers Telegram notification when new location updates are bing received. Since, location updates are always sent, the web application cannot only be used to retrieve a stolen bicycle but it may also be used when one has forgotten where the bike has been parked.
+
+
 
 
 #### Reference model
