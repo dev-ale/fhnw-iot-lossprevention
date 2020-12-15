@@ -62,7 +62,7 @@ Credits: Code from the following sources has been used:
 
 * https://www.thethingsnetwork.org/forum/t/best-practices-when-sending-gps-location-data-howto/1242/21
 
-* LoRaWAN Arduino Code from  Thomas Telkamp and Matthijs Kooijman
+* LoRaWAN Arduino Code from Thomas Telkamp and Matthijs Kooijman
 
 
 
@@ -114,7 +114,7 @@ Build:
 
 ##### Enclosure
 
-This is a proof of concept and does not come with an enclosure. Depending on the availability of a power source and environment that the tracker is used, a suitable enclosure may vary.
+This is a proof of concept and does not come with an enclosure. Depending on the availability of a power source and environment that the tracker is used in, a suitable enclosure may be selected.
 
 
 #### Node.js Web Application
