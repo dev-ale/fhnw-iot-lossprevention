@@ -91,6 +91,16 @@ The following hardware is required for this project:
 
 
 
+![Picture of assembled tracker](pictures/tracker_assembled.jpeg)
+
+
+
+![Picture of tracker components](pictures/tracker_components.jpeg)
+
+
+
+
+
 Build:
 
 * Attach the *FeatherWing* to the *Grove Shield* 
@@ -99,8 +109,8 @@ Build:
 * Attach the *Grove Cable* to the UART Port on *Grove Shield* and ensure that the connection has the following mapping:
   * GPS (TX) <-> Grove Shield (RX) 
   * GPS (RX) <-> Grove Shield (TX)
-  * GPS (VCC) <-> Grove Sheild (VCC)
-  * GPS (GND) <-> Grove SHield (GND)
+  * GPS (VCC) <-> Grove Shield (VCC)
+  * GPS (GND) <-> Grove Shield (GND)
 
 ##### Enclosure
 
