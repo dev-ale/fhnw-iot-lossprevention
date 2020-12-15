@@ -42,9 +42,9 @@ A bicycle alarm system and tracker utilizing The Things Network's LoRaWAN infras
 
 ### Team members
 
-@palder
+[@palder](https://github.com/palder)
 
-@dev-ale
+[@dev-ale](https://github.com/dev-ale)
 
 ## Deliverables
 
@@ -56,9 +56,13 @@ A bicycle alarm system and tracker utilizing The Things Network's LoRaWAN infras
 
 * [Feather nRF52840 Express Source Code](https://github.com/dev-ale/fhnw-iot-lossprevention/tree/master/arduino-code)
 
-Credits: The source code has been compiled from pre-existing source code
+Credits: The source code is based on the following source code
 
-GIVE CREDIT HERE 
+*  https://learn.sparkfun.com/tutorials/gps-logger-shield-hookup-guide/example-sketch-tinygps-serial-streaming
+
+* https://www.thethingsnetwork.org/forum/t/best-practices-when-sending-gps-location-data-howto/1242/21
+
+* LoRaWAN Arduino Code from  Thomas Telkamp and Matthijs Kooijman
 
 
 
@@ -79,10 +83,24 @@ static const u4_t DEVADDR = 0x00000000;
 The following hardware is required for this project:
 
 * Feather nRF52840 Express 
+* FeatherWing RFM95W (LoRaWAN module)
 * u-blox PAM-7Q GPS 
-* CABLES?
-* Optional but recommended: Grove Shield for Feather
-* Optional but recommended: Breadboard
+* Grove Shield for Feather
+* Breadboard
+* Grove - 4 pin Male Jumper to Grove 4 pin Conversion Cable
+
+
+
+Build:
+
+* Attach the *FeatherWing* to the *Grove Shield* 
+* Attach the *nRF52840* ontop of the *FeatherWing*
+* Place the *GPS module* on the breadboard
+* Attach the *Grove Cable* to the UART Port on *Grove Shield* and ensure that the connection has the following mapping:
+  * GPS (TX) <-> Grove Shield (RX) 
+  * GPS (RX) <-> Grove Shield (TX)
+  * GPS (VCC) <-> Grove Sheild (VCC)
+  * GPS (GND) <-> Grove SHield (GND)
 
 ##### Enclosure
 
@@ -106,9 +124,9 @@ This is a proof of concept and does not come with an enclosure. Depending on the
 
 #### The Things Network
 
-* Create a free [The Things Network](https://www.thethingsnetwork.org/) account and setup an app.
+* Create a free [The Things Network](https://www.thethingsnetwork.org/) account
 
-* Setup an Application that uses `ABP` authentication and get the `Network Session Key`, `App Session Key` and `Device Address` for replacing values in the  nRF52840 source code.
+* Setup an *Application* that uses `ABP` authentication and get the `Network Session Key`, `App Session Key` and `Device Address` for replacing values in the  nRF52840 source code.
 
 * In the The Things Network Console configure the following *Payload Format decoder*:
 
