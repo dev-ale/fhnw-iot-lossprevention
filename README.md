@@ -1,38 +1,4 @@
 # fhnw iot project - lossprevention
-### Philipp Alder & Alejandro Garcia
-
-## Device Code
-
-## WebApp
-
-#### Beschreibung & Funktion
-asdasdasd
-asd
-asd
-asd
-as
-da
-sdas
-
-#### Project setup
-```
-yarn install
-```
-
-go to main.js and add your Google API Key
-
-##### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-##### Compiles and minifies for production
-```
-npm run build
-```
-
-
-# IoT Engineering Example Project
 
 ## Project
 
@@ -117,14 +83,30 @@ Build:
 This is a proof of concept and does not come with an enclosure. Depending on the availability of a power source and environment that the tracker is used in, a suitable enclosure may be selected.
 
 
-#### Node.js Web Application
+#### Vue.js Web Application
 
 ##### Source code
 
-* [Node.js Backend Source Code](https://github.com/dev-ale/fhnw-iot-lossprevention/tree/master/src)
+* [Vue.js Source Code](https://github.com/dev-ale/fhnw-iot-lossprevention/tree/master/src)
 
 
 ##### Setup software
+
+###### Project setup
+```
+yarn install
+```
+
+###### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+###### Compiles and minifies for production
+```
+yarn build
+```
+
 
 
 ##### Setup hardware
@@ -173,7 +155,7 @@ This is a proof of concept and does not come with an enclosure. Depending on the
 
 #### Use cases
 
-The tracker does not acquire location data via GPS or transmit data via LoRaWAN until the vibration sensor registers movement.  This allows for very little power consumption during standby and only transmitting location updates when necessary. The alarm can be enabled using the web application, which triggers Telegram notification when new location updates are bing received. Since, location updates are always sent, the web application cannot only be used to retrieve a stolen bicycle but it may also be used when one has forgotten where the bike has been parked.
+The tracker does not acquire location data via GPS or transmit data via LoRaWAN until the accelerometer sensor registers movement.  This allows for very little power consumption during standby and only transmitting location updates when necessary. The alarm can be enabled using the web application, which triggers Telegram notification when new location updates are bing received. Since, location updates are always sent, the web application cannot only be used to retrieve a stolen bicycle but it may also be used when one has forgotten where the bike has been parked.
 
 
 
