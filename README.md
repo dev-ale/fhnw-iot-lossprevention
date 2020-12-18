@@ -85,6 +85,8 @@ This is a proof of concept and does not come with an enclosure. Depending on the
 
 #### Vue.js Web Application
 
+<img src="pictures/lossprevention-webapp-mobile.png" alt="webapp-mobile" width="250"/>
+
 ##### Source code
 
 * [Vue.js Source Code](https://github.com/dev-ale/fhnw-iot-lossprevention/tree/master/src)
@@ -107,7 +109,8 @@ yarn serve
 yarn build
 ```
 
-
+#### Gateway with Node Red for Telegram Bot
+asdasd
 
 ##### Setup hardware
 
