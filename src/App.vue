@@ -21,8 +21,8 @@
     </v-app-bar>
     <v-main>
       <br>
-      <Map v-if="!showPip" :location="this.locationAlejandro" :time="timeAlejandro" name="Ale"/>
-      <Map v-if="showPip" :location="this.locationPip" :time="timePip" name="Pip"/>
+      <Map v-if="!showPip" :location="this.locationAlejandro" :time="timeAlejandro" name="Alejandro" :movement="movementStateAlejandro" :notifications="notificationsAlejandro"/>
+      <Map v-if="showPip" :location="this.locationPip" :time="timePip" name="Pip" :movement="movementStatePip" :notifications="notificationsPip"/>
     </v-main>
   </v-app>
 </template>
@@ -38,7 +38,10 @@ export default {
   },
 
   data: () => ({
-    alarmState: true,
+    movementStatePip: false,
+    movementStateAlejandro: false,
+    notificationsPip: false,
+    notificationsAlejandro: false,
     client: null,
     locationPip: {
       "lat": 0,
@@ -69,23 +72,41 @@ export default {
       if (message.destinationName === 'fhnw-iot-gpstracker/devices/fhnw-iot-gpstracker-alejandro/up') {
         let msgAle = JSON.parse(message.payloadString)
         this.locationAlejandro = msgAle.payload_fields.location
+        this.movementStateAlejandro = true
+        console.log(msgAle)
         console.log('New data from Alejandro arrived: ')
         console.log(this.locationAlejandro)
         this.timeAlejandro = this.getTime()
 
-        //Todo: Set Alarm State
+        setTimeout(() => {
+          this.movementStateAlejandro = false
+        }, 40000);
       }
+      if (message.destinationName === 'fhnw-iot-lossprevention/alejandro/notifications') {
+        let notification = JSON.parse(message.payloadString)
+        this.notificationsAlejandro = notification;
+        console.log('Alejandro Notifications: ' + notification)
+      }
+
+
       // Message from Pip
       if (message.destinationName === 'fhnw-iot-lossprevention/devices/fhnw-iot-lossprevention-device0/up') {
         let msgPip = JSON.parse(message.payloadString)
         this.locationPip = msgPip.payload_fields.location
+        this.movementStatePip = true
         console.log('New data from Pip arrived: ')
         console.log(this.locationPip)
         this.timePip = this.getTime()
 
-        //Todo: Set Alarm State
+        setTimeout(() => {
+          this.movementStatePip = false
+        }, 40000);
       }
-
+      if (message.destinationName === 'fhnw-iot-lossprevention/pip/notifications') {
+        let notification = JSON.parse(message.payloadString)
+        this.notificationsPip = notification;
+        console.log('Pip Notifications: ' + notification)
+      }
 
 
     },
@@ -99,11 +120,13 @@ export default {
       //subscribe to topic
       this.client.subscribe('fhnw-iot-lossprevention/devices/fhnw-iot-lossprevention-device0/up')
       this.client.subscribe('fhnw-iot-gpstracker/devices/fhnw-iot-gpstracker-alejandro/up')
+      this.client.subscribe('fhnw-iot-lossprevention/alejandro/notifications')
+      this.client.subscribe('fhnw-iot-lossprevention/pip/notifications')
     },
     getTime() {
       let time = new Date()
       time.setHours( time.getHours() + 1 );
-      time = time.toJSON().substring(10, 16).replace('T', ' ');
+      time = time.toJSON().substring(10, 19).replace('T', ' ');
       return time
     }
   }

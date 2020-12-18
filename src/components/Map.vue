@@ -3,7 +3,13 @@
       <v-row>
         <v-col align="center">
           <v-card width="90%" max-width="500" class="card-outter">
-            <v-card-title class="justify-center">{{ name }}'s Fahrrad</v-card-title>
+            <v-card-title class="justify-center">
+              <v-spacer></v-spacer>
+              {{ name }}'s Fahrrad
+              <v-spacer></v-spacer>
+              <v-icon v-if="notifications" color="red">mdi-bell</v-icon>
+              <v-icon v-if="!notifications" color="red">mdi-bell-off</v-icon>
+            </v-card-title>
             <v-card-text v-if="!location.lat && !location.lng">
               <p>loading</p>
               <v-progress-linear indeterminate color="blue lighten-4"></v-progress-linear>
@@ -24,22 +30,18 @@
               <v-spacer></v-spacer>
               <v-btn
                   small
-                  v-if="!alarmState"
-                  @click="alarmState = !alarmState"
-                  target="_blank"
+                  v-if="!movement"
                   color="green lighten-3"
               >
+                <span class="mr-2">parked</span>
                 <v-icon>mdi-lock</v-icon>
-                <span class="mr-2">Alarm on</span>
               </v-btn>
               <v-btn
                   small
-                  v-if="alarmState"
-                  @click="alarmState = !alarmState"
-                  target="_blank"
+                  v-if="movement"
                   color="red lighten-3"
               >
-                <span class="mr-2">stolen</span>
+                <span class="mr-2">in motion</span>
                 <v-icon>mdi-lock-open</v-icon>
               </v-btn>
             </v-card-actions>
@@ -82,7 +84,7 @@
 <script>
 
 export default {
-  props: ['location', 'time', 'name'],
+  props: ['location', 'time', 'name', 'movement', 'notifications'],
   watch: {
     location: function(newVal, oldVal) { // watch it
       this.bike.lat = newVal.lat
