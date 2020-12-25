@@ -139,6 +139,9 @@ So everybody can turn on and off the notifications for the specific bike.
 
 If notifications are turned on for the specific bike, and a new coordinate comes in. The user gets notified directly in the Telegram Chat with Location of the bike.
 
+Telegram Chat
+<img src="pictures/telegram01.gif" alt="telegram" width="250"/>
+
 ##### Setup hardware
 
 
