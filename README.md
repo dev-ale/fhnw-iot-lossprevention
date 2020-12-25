@@ -204,3 +204,4 @@ The tracker does not acquire location data via GPS or transmit data via LoRaWAN 
 
 ### Live demo
 
+https://lossprevention.surge.sh/
