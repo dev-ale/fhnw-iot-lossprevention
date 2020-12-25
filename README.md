@@ -110,7 +110,34 @@ yarn build
 ```
 
 #### Gateway with Node Red for Telegram Bot
-asdasd
+
+###### MQTT Bridge
+![NodeRed-01](pictures/nodered-01.png)
+
+The MQTT Broker from thethingsnetwork is not accessable directly trough Websockets.
+We have found a workaround, but this is only recomended in a Test Envirenment.
+Since we planned integrating NodeRed anyway, we created a MQTT broker bridge in it.
+
+For testing purposes we take the public broker from Mosquitto, which now subscribes to our topics from theThingsNetwork.
+The Open MQTT Broker from Mosquitto supports Websockets and we can access al topics directly within our Web-App.
+
+
+###### Telegram Integration
+![NodeRed-03](pictures/nodered-03.png)
+
+In this Nodes we configure the Telegram Bot.
+We have 2 commandos:
+* /alarmOn -> turns on the notifications in Telegram
+* /alarmOff -> turns on the notifications in Telegram
+
+The Messages arrive in a group Chat where Philip and I are part of.
+The /alarmOn command gets filtered by Telegram Username, so it will be distictive.
+So everybody can turn on and off the notifications for the specific bike.
+
+###### Send Coordinates to Telegram
+![NodeRed-02](pictures/nodered02.png)
+
+If notifications are turned on for the specific bike, and a new coordinate comes in. The user gets notified directly in the Telegram Chat with Location of the bike.
 
 ##### Setup hardware
 
