@@ -127,6 +127,10 @@ yarn build
 
 #### Gateway with Node Red for Telegram Bot
 
+Our Gateway is a simple Raspberry Pi Zero with Node Red installed on it. It connecteed to the internet and could be anywhere... :-)
+
+
+
 ###### MQTT Bridge
 ![NodeRed-01](pictures/nodered-01.png)
 
