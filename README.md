@@ -83,9 +83,25 @@ Build:
 This is a proof of concept and does not come with an enclosure. Depending on the availability of a power source and environment that the tracker is used in, a suitable enclosure may be selected.
 
 
-#### Vue.js Web Application
+#### Web Application
 
 <img src="pictures/lossprevention-webapp-mobile.png" alt="webapp-mobile" width="250"/>
+
+##### Features:
+* Show the Location of the Bike on the Google Map
+* Toggle between the 2 Views which represent Philipp's or Alejandro's Bike
+* See when the last message came in
+* See if the bike is moving
+* See if Telegram Notifcations are enabled
+* Track your own coordinate to see it on the map as well
+
+##### Tech
+
+* Vue.js Frontend Framework
+* Websockets to communicate with our MQTT Broker
+* Vuetify Vue.js Design Framework
+* Google Maps js API
+
 
 ##### Source code
 
