@@ -7,8 +7,8 @@
               <v-spacer></v-spacer>
               {{ name }}'s Fahrrad
               <v-spacer></v-spacer>
-              <v-icon v-if="notifications" color="red">mdi-bell</v-icon>
-              <v-icon v-if="!notifications" color="red">mdi-bell-off</v-icon>
+              <v-icon v-if="notifications" color="blue darken-4">mdi-bell</v-icon>
+              <v-icon v-if="!notifications" color="blue darken-4">mdi-bell-off</v-icon>
             </v-card-title>
             <v-card-text v-if="!location.lat && !location.lng">
               <p>loading</p>
@@ -33,17 +33,18 @@
                   v-if="!movement"
                   color="green lighten-3"
               >
-                <span class="mr-2">parked</span>
-                <v-icon>mdi-lock</v-icon>
+                <v-icon class="mr-1">mdi-bicycle</v-icon>
+                <span class="mr-2">not moving</span>
               </v-btn>
               <v-btn
                   small
                   v-if="movement"
                   color="red lighten-3"
               >
-                <v-icon>mdi-bike-fast</v-icon>
+                <v-icon class="mr-1">mdi-bike-fast</v-icon>
                 <span class="mr-2">in motion</span>
               </v-btn>
+              <v-spacer></v-spacer>
             </v-card-actions>
           </v-card>
           <p class="caption">{{ timeStamp }}</p>

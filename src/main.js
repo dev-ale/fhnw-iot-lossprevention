@@ -9,7 +9,7 @@ Vue.config.productionTip = false
 Vue.use(VueGeolocation)
 Vue.use(VueGoogleMaps, {
   load: {
-    key: 'YOUR_API_KEY',
+    key: 'GOOGLE-MAPS-API-KEY',
   }
 })
 

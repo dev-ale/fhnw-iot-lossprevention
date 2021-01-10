@@ -1,6 +1,9 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
+    <v-app-bar app color="blue darken-4" dark>
+      <v-btn icon href="https://github.com/dev-ale/fhnw-iot-lossprevention">
+        <v-icon class="mr-1">mdi-github</v-icon>
+      </v-btn>
       <v-spacer></v-spacer>
       <h2>loss prevention</h2>
       <v-spacer></v-spacer>
@@ -9,14 +12,14 @@
       color="green"
       @click="showPip = !showPip"
       v-if="!showPip">
-        Ale
+        Alejandro
       </v-btn>
       <v-btn
           small
           color="red"
           @click="showPip = !showPip"
           v-if="showPip">
-        Pip
+        Philipp
       </v-btn>
     </v-app-bar>
     <v-main>
