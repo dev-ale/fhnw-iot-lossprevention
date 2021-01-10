@@ -20,13 +20,13 @@
               <p>Longitude: {{ location.lng }}</p>
             </v-card-text>
             <v-card-actions v-if="location.lat && location.lng">
-              <v-btn
+<!--              <v-btn
                   v-if="timeStamp"
                   elevation="2"
                   small
                   color="blue lighten-3"
               ><v-icon small>mdi-refresh</v-icon> {{ timeStamp }}
-              </v-btn>
+              </v-btn>-->
               <v-spacer></v-spacer>
               <v-btn
                   small
@@ -41,11 +41,12 @@
                   v-if="movement"
                   color="red lighten-3"
               >
+                <v-icon>mdi-bike-fast</v-icon>
                 <span class="mr-2">in motion</span>
-                <v-icon>mdi-lock-open</v-icon>
               </v-btn>
             </v-card-actions>
           </v-card>
+          <p class="caption">{{ timeStamp }}</p>
         </v-col>
       </v-row>
       <v-row class="mb-12">
@@ -91,8 +92,10 @@ export default {
       this.bike.lng = newVal.lng
     },
     time: function(newVal) {
+      //this.timeStamp = newVal.toJSON().substring(0, 19).replace('T', ' ');
       this.timeStamp = newVal
-    }
+    },
+
   },
 
   data() {

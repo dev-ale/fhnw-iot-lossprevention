@@ -76,8 +76,10 @@ export default {
         console.log(msgAle)
         console.log('New data from Alejandro arrived: ')
         console.log(this.locationAlejandro)
-        this.timeAlejandro = this.getTime()
-
+        //this.timeAlejandro = this.getTime()
+        this.timeAlejandro = new Date(msgAle.metadata.time)
+        console.log(this.timeAlejandro)
+        this.compareTimeAlejandro()
         setTimeout(() => {
           this.movementStateAlejandro = false
         }, 40000);
@@ -95,9 +97,10 @@ export default {
         this.locationPip = msgPip.payload_fields.location
         this.movementStatePip = true
         console.log('New data from Pip arrived: ')
+        //this.timePip = this.getTime()
+        this.timePip = new Date(msgPip.metadata.time)
         console.log(this.locationPip)
-        this.timePip = this.getTime()
-
+        this.compareTimePip()
         setTimeout(() => {
           this.movementStatePip = false
         }, 40000);
@@ -128,6 +131,28 @@ export default {
       time.setHours( time.getHours() + 1 );
       time = time.toJSON().substring(10, 19).replace('T', ' ');
       return time
+    },
+    compareTimeAlejandro() {
+      let time = new Date()
+      let dif = time.getTime() - this.timeAlejandro.getTime();
+
+      let Seconds_from_T1_to_T2 = dif / 1000;
+      let Seconds_Between_Dates = Math.abs(Seconds_from_T1_to_T2);
+      console.log(Seconds_Between_Dates);
+      if (Seconds_Between_Dates > 40) {
+        this.movementStateAlejandro = false
+      }
+    },
+    compareTimePip() {
+      let time = new Date()
+      let dif = time.getTime() - this.timePip.getTime();
+
+      let Seconds_from_T1_to_T2 = dif / 1000;
+      let Seconds_Between_Dates = Math.abs(Seconds_from_T1_to_T2);
+      console.log(Seconds_Between_Dates);
+      if (Seconds_Between_Dates > 40) {
+        this.movementStatePip = false
+      }
     }
   }
 
